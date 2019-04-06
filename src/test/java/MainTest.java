@@ -26,13 +26,13 @@ public class MainTest extends BaseTest {
         flight.oneWayTripClick();
         flight.setFlightDetails("1", "New York", "April", "7",
                 "Acapulco", "May", "6");
-        flight.continueButtonClick();
     }
 
     public void selectFlightPreferences() {
         FlightFinder flight = new FlightFinder(driver);
         flight.businessClassChoise();
         flight.flightPreferences("Blue Skies Airlines");
+        flight.continueButtonClick();
     }
 
     public void selectFlight() {
@@ -47,9 +47,11 @@ public class MainTest extends BaseTest {
         flightBook.setPassengers("Victor", "Pupkin", "Low Calorie");
         flightBook.setCreditCard("MasterCard", "4444 8888", "09", "2010");
         flightBook.setCardOwner("Victor", "Ivanovich", "Pupkin");
-        flightBook.setBillingAddress("4765 Bond Str.", "Yfa", "SQ", "776688","RUSSIA");
+        flightBook.setBillingAddress("4765 Bond Str.", "Yfa", "SQ", "778866",
+                "UNITED STATES");
         flightBook.asBillingAddressClick();
-        flightBook.setDeliveryAddress("4765 Bond Str.", "Yfa", "SQ", "776688","RUSSIA");
+        flightBook.setDeliveryAddress("4765 Bond Str.", "Yfa", "SQ", "778866",
+                "UNITED STATES");
         flightBook.securePurchaseButtonClick();
     }
 }

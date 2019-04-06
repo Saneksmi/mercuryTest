@@ -77,7 +77,9 @@ public class FlightBooking extends BasePage {
     }
 
     public void setPassengers(String firstName, String lastName, String meal) {
+        passengerFirstName.clear();
         passengerFirstName.sendKeys(firstName);
+        passengerLastName.clear();
         passengerLastName.sendKeys(lastName);
         getSelect(passengerMeal);
         select.selectByVisibleText(meal);
@@ -86,6 +88,7 @@ public class FlightBooking extends BasePage {
     public void setCreditCard(String type, String number, String month, String year) {
         getSelect(cardType);
         select.selectByVisibleText(type);
+        cardNumber.clear();
         cardNumber.sendKeys(number);
         getSelect(expirationMonth);
         select.selectByVisibleText(month);
@@ -94,15 +97,22 @@ public class FlightBooking extends BasePage {
     }
 
     public void setCardOwner(String fName, String mName, String lName) {
+        cardOwnerFirstName.clear();
         cardOwnerFirstName.sendKeys(fName);
+        cardOwnerMiddleName.clear();
         cardOwnerMiddleName.sendKeys(mName);
+        cardOwnerLastName.clear();
         cardOwnerLastName.sendKeys(lName);
     }
 
     public void setBillingAddress(String address, String city, String state, String post, String country) {
+        billingAddress.clear();
         billingAddress.sendKeys(address);
+        billingCity.clear();
         billingCity.sendKeys(city);
+        billingState.clear();
         billingState.sendKeys(state);
+        billingZip.clear();
         billingZip.sendKeys(post);
         getSelect(billingCountry);
         select.selectByVisibleText(country);
@@ -113,9 +123,13 @@ public class FlightBooking extends BasePage {
     }
 
     public void setDeliveryAddress(String address, String city, String state, String post, String country) {
+        deliveryAddress.clear();
         deliveryAddress.sendKeys(address);
+        deliveryCity.clear();
         deliveryCity.sendKeys(city);
+        deliveryState.clear();
         deliveryState.sendKeys(state);
+        deliveryZip.clear();
         deliveryZip.sendKeys(post);
         getSelect(deliveryCountry);
         select.selectByVisibleText(country);
