@@ -10,6 +10,41 @@ public class FlightBooking extends BasePage {
 
     private Select select;
 
+    @FindBy (xpath = "//title)")
+    String title;
+
+    //Summary depart info
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[1]")
+    public WebElement departRoute;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[2]")
+    public WebElement departDate;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//b)[3]")
+    public WebElement departFlight;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[7]")
+    public WebElement departFlightClass;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[8]")
+    public WebElement departPrice;
+
+    //Summary arrival info
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[9]")
+    public WebElement arrivalRoute;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[10]")
+    public WebElement arrivalDate;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//b)[6]")
+    public WebElement arrivalFlight;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[19]")
+    public WebElement arrivalFlightClass;
+    @FindBy (xpath = "(//td//font[contains(.,'Summary')]/following::tr//font)[20]")
+    public WebElement arrivalPrice;
+
+    //Price
+    @FindBy (xpath = "(//td/font[text()='Passengers:']/following::td/font)[1]")
+    public WebElement numberOfPassengers;
+    @FindBy (xpath = "(//td/font[contains(.,'Taxes:')]/following::td/font)[1]")
+    public WebElement taxes;
+    @FindBy (xpath = "(//td/font[contains(.,'Total Price')]/following::td//b)[1]")
+    public WebElement totalPrice;
+
     //Passengers
     @FindBy(xpath = "//input[@name='passFirst0']")
     WebElement passengerFirstName;
@@ -35,8 +70,8 @@ public class FlightBooking extends BasePage {
     WebElement cardOwnerLastName;
 
     //Billing address
-    /*@FindBy(xpath = "//input[@name='ticketLess']")
-    WebElement billingAddress;*/
+    @FindBy(xpath = "//input[@type='checkbox']")
+    WebElement ticketLess;
     @FindBy(xpath = "//input[@name='billAddress1']")
     WebElement billingAddress;
     @FindBy(xpath = "//input[@name='billCity']")
@@ -49,7 +84,7 @@ public class FlightBooking extends BasePage {
     WebElement billingCountry;
 
     //Delivery address
-    @FindBy(xpath = "//input[@type='checkbox']")
+    @FindBy(xpath = "(//input[@type='checkbox'])[2]")
     WebElement asBillingAddress;
     @FindBy(xpath = "//input[@name='delAddress1']")
     WebElement deliveryAddress;

@@ -8,24 +8,32 @@ import org.openqa.selenium.support.PageFactory;
 
 public class FlightSelect extends BasePage {
 
+    @FindBy (xpath = "//title)")
+    String title;
+
+    //Depart info
+    @FindBy (xpath = "(//font[text() = 'DEPART']/following::tr//font)[1]")
+    public WebElement departRoute;
+    @FindBy (xpath = "(//font[text() = 'DEPART']/following::tr//font)[2]")
+    public WebElement departDate;
+
     //Depart
-    @FindBy(xpath = "//input[@value='Blue Skies Airlines$360$270$5:03']")
-    WebElement blueSkies360;
     @FindBy(xpath = "//input[@value='Blue Skies Airlines$361$271$7:10']")
-    WebElement blueSkies361;
-    @FindBy(xpath = "//input[@value='Pangaea Airlines$362$274$9:17']")
-    WebElement pangaea362;
-    @FindBy(xpath = "//input[@value='Unified Airlines$363$281$11:24']")
-    WebElement unified363;
+    WebElement departFlight;
+    @FindBy(xpath = "(//td//b[contains(.,'Blue Skies Airlines 361')]/following::tr//b)[1]")
+    public WebElement departPrice;
+
+    //Return info
+    @FindBy (xpath = "(//font[text() = 'RETURN']/following::tr//font)[1]")
+    public WebElement returnRoute;
+    @FindBy (xpath = "(//font[text() = 'RETURN']/following::tr//font)[2]")
+    public WebElement returnDate;
+
     //Return
-    @FindBy(xpath = "//input[@value='Blue Skies Airlines$630$273$12:23']")
-    WebElement blueSkies630;
     @FindBy(xpath = "//input[@value='Blue Skies Airlines$631$273$14:30']")
-    WebElement blueSkies631;
-    @FindBy(xpath = "//input[@value='Pangea Airlines$632$273$16:37']")
-    WebElement pangea632;
-    @FindBy(xpath = "//input[@value='Unified Airlines$633$273$18:44']")
-    WebElement unified633;
+    WebElement returnFlight;
+    @FindBy(xpath = "(//td//b[contains(.,'Blue Skies Airlines 631')]/following::tr//b)[1]")
+    public WebElement returnPrice;
     @FindBy(xpath = "//input[@name='reserveFlights']")
     WebElement continueButton;
 
@@ -34,36 +42,14 @@ public class FlightSelect extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void flight360Choise() {
-        blueSkies360.click();
+    //Depart
+    public void departFlightSelect() {
+        departFlight.click();
     }
 
-    public void flight361Choise() {
-        blueSkies361.click();
-    }
-
-    public void flight362Choise() {
-        pangaea362.click();
-    }
-
-    public void flight363Choise() {
-        unified363.click();
-    }
-
-    public void flight630Choise() {
-        blueSkies630.click();
-    }
-
-    public void flight631Choise() {
-        blueSkies631.click();
-    }
-
-    public void flight632Choise() {
-        pangea632.click();
-    }
-
-    public void flight633Choise() {
-        unified633.click();
+    //Return
+    public void returnFlightSelect() {
+        returnFlight.click();
     }
 
     public void continueButtonClick() {

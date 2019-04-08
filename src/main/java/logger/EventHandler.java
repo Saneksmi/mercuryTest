@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class EventHandler implements WebDriverEventListener {
 
     @Override
@@ -29,12 +32,12 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void beforeNavigateTo(String s, WebDriver webDriver) {
-
+        System.out.println("Идём по адресу " + s);
     }
 
     @Override
     public void afterNavigateTo(String s, WebDriver webDriver) {
-
+        System.out.println("Пришли по адресу " + s);
     }
 
     @Override
@@ -69,27 +72,27 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void beforeFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Ищем " + by.toString());
     }
 
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Нашли " + by.toString());
     }
 
     @Override
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Щас кликнем в" + webElement.toString());
     }
 
     @Override
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Кликнули в" + webElement.toString());
     }
 
     @Override
     public void beforeChangeValueOf(WebElement webElement, WebDriver webDriver, CharSequence[] charSequences) {
-
+        System.out.println("Значение поля " + webElement + "меняем на " + Arrays.toString(charSequences));
     }
 
     @Override

@@ -10,6 +10,9 @@ public class FlightFinder extends BasePage {
 
     private Select select;
 
+    @FindBy (xpath = "//title)")
+    String title;
+
     //Flight Details
     @FindBy(xpath = "//input[@value='roundtrip']")
     WebElement roundTrip;
@@ -61,16 +64,21 @@ public class FlightFinder extends BasePage {
         oneWayTrip.click();
     }
 
-    public void setFlightDetails(String numOfPas, String fromPort, String fromMonth, String fromDay,
-                                 String toPort, String toMonth, String toDay) {
+    public void setNumberOfPassengers(String numOfPas) {
         getSelect(numberOfPassengers);
         select.selectByVisibleText(numOfPas);
+    }
+
+    public void setDepartingDetails(String fromPort, String fromMonth, String fromDay) {
         getSelect(departingFrom);
         select.selectByVisibleText(fromPort);
         getSelect(monthOfDeparture);
         select.selectByVisibleText(fromMonth);
         getSelect(dayOfDeparture);
         select.selectByVisibleText(fromDay);
+    }
+
+    public void setArrivingDetails(String toPort, String toMonth, String toDay) {
         getSelect(arrivalTo);
         select.selectByVisibleText(toPort);
         getSelect(monthOfArrival);
